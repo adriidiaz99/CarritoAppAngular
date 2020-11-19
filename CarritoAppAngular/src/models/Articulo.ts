@@ -24,8 +24,27 @@ export class Articulo{
         this.precioOriginal = precioOriginal;
         this.precioRebaja = precioRebaja;
         if(rebaja)
-            this.importe = precioRebaja * cantidad;
+            this.importe = Number.parseFloat((precioRebaja * cantidad).toFixed(2));
         else
-            this.importe = precioOriginal * cantidad;
+            this.importe = Number.parseFloat((precioOriginal * cantidad).toFixed(2));
+    }
+
+    incrementarCantidad(){
+        this.cantidad++;
+    }
+
+    decrementarCantidad(){
+        this.cantidad--;
+    }
+
+    calcularImporte(){
+
+        if(this.rebaja){
+            this.importe = Number.parseFloat((this.precioRebaja * this.cantidad).toFixed(2));
+
+        } else {
+            this.importe = Number.parseFloat((this.precioOriginal * this.cantidad).toFixed(2));
+        }
+
     }
 }

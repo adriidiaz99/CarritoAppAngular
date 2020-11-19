@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Articulo } from "../../models/Articulo.js";
+import { ArticuloComponent } from '../articulo/articulo.component.js';
 
 @Component({
   selector: 'app-articulos',
@@ -20,6 +21,12 @@ export class ArticulosComponent implements OnInit {
 
   myFunc(){
     console.log("function called");
+  }
+
+  eliminarArticulo(articulo:Articulo){
+    let index:number = this.listaArticulos.indexOf(articulo);
+
+    this.listaArticulos.splice(index);
   }
 
 }

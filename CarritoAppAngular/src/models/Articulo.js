@@ -14,10 +14,24 @@ var Articulo = /** @class */ (function () {
         this.precioOriginal = precioOriginal;
         this.precioRebaja = precioRebaja;
         if (rebaja)
-            this.importe = precioRebaja * cantidad;
+            this.importe = Number.parseFloat((precioRebaja * cantidad).toFixed(2));
         else
-            this.importe = precioOriginal * cantidad;
+            this.importe = Number.parseFloat((precioOriginal * cantidad).toFixed(2));
     }
+    Articulo.prototype.incrementarCantidad = function () {
+        this.cantidad++;
+    };
+    Articulo.prototype.decrementarCantidad = function () {
+        this.cantidad--;
+    };
+    Articulo.prototype.calcularImporte = function () {
+        if (this.rebaja) {
+            this.importe = Number.parseFloat((this.precioRebaja * this.cantidad).toFixed(2));
+        }
+        else {
+            this.importe = Number.parseFloat((this.precioOriginal * this.cantidad).toFixed(2));
+        }
+    };
     return Articulo;
 }());
 exports.Articulo = Articulo;
