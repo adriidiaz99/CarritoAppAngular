@@ -9,9 +9,11 @@ import { Articulo } from "../../models/Articulo.js";
 export class ArticulosComponent implements OnInit {
 
   listaArticulos:Articulo[];
+  fecha:Date;
 
   constructor() {
     this.listaArticulos = [];
+    this.fecha = new Date();
   }
 
   ngOnInit(): void {
